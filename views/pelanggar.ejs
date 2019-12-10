@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/navStyle.css" />
+  <link rel="stylesheet" href="css/homeStyle.css" />
+  <link rel="stylesheet" href="css/semantic.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <title>Pelanggaran | Tata Tertib Siswa</title>
+</head>
+
+<body>
+  <%- include ("assets/navbar.ejs") %>
+  <div>
+    <div class="ui container">
+      <br />
+      <h1 class="text-center">Daftar Pelanggaran</h1>
+      <br />
+      <div class="my-2">
+        <table class="ui celled table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Pelanggaran</th>
+              <th>Kategori</th>
+              <th>Poin</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% printPel.forEach(function(data) { %>
+            <tr>
+              <td><%= data.id %></td>
+              <td><%= data.nama_pelanggaran %></td>
+              <td><%= data.kategori %></td>
+              <td><%= data.poin %></td>
+              <td>
+                <a class="btn btn-danger btn-sm m-1" href="/hapusPel/<%= data.id %>">Hapus</a>
+                <button type="button" class="btn btn-warning btn-sm m-1 edit-post" data-id="<%= data.id %>" data-nama_pelanggaran="<%= data.nama_pelanggaran %>"
+                  data-kategori="<%= data.kategori %>" data-poin="<%= data.poin %>">Edit</button>
+                  
+              </td>
+              <% }) %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<div id="editPostModal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Edit</div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form action="/editPel" method="POST">
+          <input type="hidden" name="id" id="edit_id">
+          <div class="form-group">
+            <label for="nama_pelanggaran">Nama Pelanggaran</label>
+            <input type="text" class="form-control" name="nama_pelanggaran">
+          </div>
+          <div class="form-group">
+            <label for="kategori">Kategori</label>
+            <textarea name="kategori" class="form-control" rows="10"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="poin">Poin</label>
+            <input type="text" class="form-control" name="poin">
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary" type="submit">Update!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      
+      <script>
+        $('.edit-post').on('click', function () {
+          var id = $(this).data('id')
+          var nama_pelanggaran = $(this).data('nama_pelanggaran')
+          var kategori = $(this).data('kategori')
+          var poin = $(this).data('poin')
+
+          $('#editPostModal').modal('show')
+
+          $('#edit_id').val(id)
+          $('#edit_nama_pelanggaran').val(nama_pelanggaran)
+          $('#edit_kategori').val(kategori)
+          $('#edit_poin').val(poin)
+        })
+      </script>
+
+</body>
+
+</html>

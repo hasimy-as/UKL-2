@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/semantic.min.css" />
+    <link rel="stylesheet" href="css/welcomeStyle.css" />
+    <title>Selamat Datang</title>
+  </head>
+
+  <body>
+    <%- include ("assets/navbar.ejs") %>
+    <br />
+    <div class="ui container">
+      <center>
+        <h1 class="text-center">Silahkan pilih proses Input:</h1>
+        <br /><br />
+      </center>
+      <div class="ui placeholder segment">
+        <div class="ui three column stackable center aligned grid">
+          <div class="row">
+            <div class="column">
+              <div class="ui icon header">
+                <a href="/register"><i class="box icon"></i></a>
+                <br />
+                Input Data Petugas
+              </div>
+              <div class="field">
+                <p>
+                  Form khusus untuk menginputkan data Petugas Tata Tertib
+                  Sekolah.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui icon header">
+                <a href="/langgar"><i class="edit icon"></i></a>
+                <br />
+                Input Data Pelanggaran
+              </div>
+              <div class="field">
+                <p>
+                  Form untuk menginputkan data pelanggaran aturan Tata Tertib
+                  Siswa-Siswi Sekolah.
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="ui icon header">
+                <a href="/tambah"><i class="clipboard list icon"></i></a>
+                <br />
+                Input Data Siswa
+              </div>
+              <div class="field">
+                <p>
+                  Form untuk menginputkan data Siswa-Siswi Sekolah.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

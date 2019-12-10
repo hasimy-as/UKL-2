@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/Universal/logo-ts.png"
+      sizes="96x96"
+    />
+    <title>Tambah Data | Tata Tertib Siswa</title>
+  </head>
+
+  <body>
+    <%- include ("assets/navbar.ejs") %>
+
+    <div class="container">
+      <form class="ui form" method="POST" action="authLanggar">
+        <br />
+
+        <h2 class="ui header text-center">Penambahan Data Pelanggaran</h2>
+
+        <p class="ui dividing header"></p>
+        <br />
+        <div class="two fields">
+          <div class="field">
+            <label for="nama_pelanggaran">Nama Pelanggaran</label>
+            <input
+              type="text"
+              name="nama_pelanggaran"
+              placeholder="Pelanggaran"
+              required
+            />
+
+            <div class="field">
+              <br />
+              <div class="five fields">
+                <div class="field">
+                  <label for="kategori">Kategori</label>
+                  <br />
+                  <div>
+                    <input
+                      type="radio"
+                      name="kategori"
+                      value="kedisiplinan"
+                      checked
+                    />
+                    <label for="Kedisiplinan">Kedisiplinan</label>
+                    <div>
+                      <input type="radio" name="kategori" value="kerapian" />
+                      <label for="Kerapian">Kerapian</label>
+                    </div>
+                    <input type="radio" name="kategori" value="petugas" />
+                    <label for="Kerajinan">Kerajinan</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="five fields">
+          <div class="field">
+            <label for="poin">Poin</label>
+            <input type="text" name="poin" required />
+          </div>
+        </div>
+        <br />
+        <a class="ui blue button" href="/input">Kembali</a>
+        <input
+          class="ui green button"
+          type="submit"
+          tabindex="0"
+          value="Tambahkan"
+        />
+      </form>
+      <br />
+    </div>
+  </body>
+</html>

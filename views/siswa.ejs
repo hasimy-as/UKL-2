@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/navStyle.css" />
+    <link rel="stylesheet" href="css/homeStyle.css" />
+    <link rel="stylesheet" href="css/semantic.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Siswa | Tata Tertib Siswa</title>
+  </head>
+
+  <body>
+    <%- include ("assets/navbar.ejs") %>
+    <div>
+      <div class="ui container">
+        <br />
+        <h1 class="text-center">Daftar Siswa</h1>
+        <br />
+            <div class="my-2">
+                <table class="ui celled table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIS</th>
+                            <th>Nama</th>
+                            <th>Kelas</th>
+                            <th>Aksi</th>
+                            <!-- <th>Langgar</th>
+                            <th>Poin</th>
+                            <th>Keterangan</th>
+                            <th>Aksi</th> -->
+                        </tr>
+                    </thead>
+                <tbody>
+                    <% print.forEach(function(data) { %>
+                    <tr>
+                        <td><%= data.id %></td>
+                        <td><%= data.nis %></td>
+                        <td><%= data.nama_siswa %></td>
+                        <td><%= data.kelas %></td>
+                        <!-- <% if (data.langgar === "T"){ %>
+                        <td>Tidak</td>
+                        <td>0</td>
+                        <td>-</td>
+                        <% } else {%>
+                        <td>Ya</td>
+                        <td>50</td>
+                        <td>Mencuri Penghapus</td>
+                        <% } %> -->
+                    <td>
+                        <a class="btn btn-danger btn-sm m-1" href="/hapusS/<%= data.id %>">Hapus</a>
+                        <button type="button" class="btn btn-warning btn-sm m-1 edit-post" data-id="<%= data.id %>" data-nis="<%= data.nis %>"
+                            data-nama_siswa="<%= data.nama_siswa %>" data-kelas="<%= data.kelas %>">Edit</button>
+                    </td>
+                    <% }) %>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+            
+            
+            
+<div id="editPostModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Edit</div>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="/editS/:id" method="POST">
+                    <input type="hidden" name="id" id="edit_id">
+                    <div class="form-group">
+                        <label for="nis">NIS</label>
+                        <input type="text" class="form-control" name="nis">
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_siswa">Nama Siswa</label>
+                        <input type="text" class="form-control" name="nama_siswa">
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas">Kelas</label>
+                        <input type="text" class="form-control" name="kelas">
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit">Update!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    $('.edit-post').on('click', function () {
+        var id = $(this).data('id')
+        var nis = $(this).data('nis')
+        var nama_siswa = $(this).data('nama_siswa')
+        var kelas = $(this).data('kelas')
+
+        $('#editPostModal').modal('show')
+
+        $('#edit_id').val(id)
+        $('#edit_nis').val(nis)
+        $('#edit_nama_siswa').val(nama_siswa)
+        $('#edit_kelas').val(kelas)
+    })
+</script>
+
+            
+  </body>
+</html>

@@ -4,19 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login | Aplikasi</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/semantic.css" />
+    <link rel="stylesheet" href="css/semantic.min.css" />
+
+    <title>Masuk - Petugas Tata Tertib</title>
   </head>
 
   <body>
-    <h1>Masuk</h1>
+    <div class="ui middle aligned center aligned grid">
+      <div class="column ui stacked segment">
+        <h1 class="ui red header">Petatib Moklet</h1>
+        <br />
 
-    <form action="authlog" method="post">
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <input type="submit" value="Masuk!" />
-    </form>
+        <form class="ui large form" method="POST" action="auth">
+          <label class="ui black header">
+            Email
+          </label>
+          <br />
+          <input
+            type="text"
+            name="email"
+            placeholder="email@smktelkom-mlg.sch.id"
+            required
+            autofocus
+            email
+          />
 
-    <br /><br />
-    <a href="/register">Belum ada akun?</a>
+          <label htmlFor="password" class="ui black header">
+            <br /><br />
+            Password
+          </label>
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password anda"
+            required
+          />
+          <br /><br /><br />
+          <input
+            class="ui fluid large teal submit button"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

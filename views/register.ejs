@@ -4,46 +4,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Register | Aplikasi</title>
+    <title>Register Petugas | Tata Tertib Siswa</title>
   </head>
 
   <body>
-    <h1>Register</h1>
-    <form method="POST" action="authreg">
-      Nama
+    <%- include ("assets/navbar.ejs") %>
+    <div class="container">
+      <br />
+      <h1 class="ui header text-center">Penambahan Data Petugas</h1>
+      <form class="ui form" method="POST" action="authreg">
+        <div class="two fields">
+          <div class="field">
+            <label for="nama">Nama</label>
+            <div class="field">
+              <br />
+              <input
+                type="text"
+                name="nama"
+                placeholder="Nama anda"
+                required
+                autofocus
+                email
+              />
+            </div>
+          </div>
+        </div>
 
-      <input
-        type="text"
-        name="nama"
-        placeholder="Nama anda"
-        required
-        autofocus
-        email
-      />
+        <div class="two fields">
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="field">
+              <br />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email anda"
+                required
+                autofocus
+                email
+              />
+            </div>
+          </div>
+        </div>
 
-      Email
+        <div class="three fields">
+          <div class="field">
+            <label for="password">Kata Kunci</label>
+            <div class="field">
+              <br />
+              <input
+                type="password"
+                name="password"
+                placeholder="Kata Kunci anda"
+                required
+                autofocus
+                email
+              />
+            </div>
+          </div>
+        </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="contoh@domain.com"
-        required
-        autofocus
-        email
-      />
-
-      Password
-      <input
-        type="password"
-        name="password"
-        placeholder="Kata kunci anda"
-        required
-      />
-      <br /><br /><br />
-      <input type="submit" value="Daftar!" />
-    </form>
-    <br /><br />
-    <p>Sudah memiliki akun?</p>
-    <a href="/login">Masuk disini</a>
+        <div class="three fields">
+          <div class="field">
+            <label for="tugas">Tugas</label>
+            <div class="field">
+              <br />
+              <div>
+                <input type="radio" name="tugas" value="admin" checked />
+                <label for="admin">Admin</label>
+                <div>
+                  <input type="radio" name="tugas" value="petugas" />
+                  <label for="petugas">Petugas</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <a class="ui blue button" href="/input">Kembali</a>
+        <input
+          class="ui green button"
+          type="submit"
+          tabindex="0"
+          value="Tambahkan"
+        />
+      </form>
+      <br /><br />
+    </div>
   </body>
 </html>

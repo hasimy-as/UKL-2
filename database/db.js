@@ -4,13 +4,13 @@ let db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "logincrud",
+  database: "tatib_siswa",
   multipleStatements: true
 });
 
 db.connect(err => {
   if (err) throw err;
-  console.info("terkoneksikan!");
+  console.info("database terkoneksi");
 });
 
 export default db;
