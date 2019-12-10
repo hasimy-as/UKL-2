@@ -16,24 +16,7 @@ Route.get("/tambah", (req, res) => res.render("tambahsiswa"));
 
 Route.get("/", (req, res) => {
   if (req.session.loggedin) {
-    var { nama_siswa } = req.params;
-    const sql = "SELECT * FROM siswa ORDER BY id DESC LIMIT 1";
-
-    db.query(sql, [nama_siswa], function(err, rows) {
-      nama_siswa = req.session;
-
-      if (err) throw err;
-
-      if (rows.length > 0) {
-        nama_siswa = rows[0];
-      } else {
-        nama_siswa = null;
-      }
-
-      res.render("homepage", {
-        nama_siswa: nama_siswa
-      });
-    });
+    res.render("homepage");
   } else {
     alert("Silahkan masuk dulu!");
     res.redirect("/login");
@@ -69,26 +52,6 @@ Route.get("/pelanggaran", (req, res) => {
     res.render("pelanggar", pelanggar);
   });
 });
-
-// Route.post("/editSiswa", (req, res) => {
-//   let sql =
-//     'UPDATE siswa SET nis="' +
-//     req.body.nis +
-//     '", nama_siswa="' +
-//     req.body.nama_siswa +
-//     '",kelas="' +
-//     req.body.kelas +
-//     '",langgar="' +
-//     req.body.langgar +
-//     '" WHERE id=' +
-//     req.body.id +
-//     "";
-//   let query = db.query(sql, (err, results) => {
-//     if (err) throw err;
-//     alert("Data diperbaharui!");
-//     res.redirect("/siswa");
-//   });
-// });
 
 Route.post("/auth", (req, res) => {
   let email = req.body.email;
