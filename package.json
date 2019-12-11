@@ -1,21 +1,21 @@
 {
-  "name": "log-crud",
+  "name": "ukl-2",
   "version": "1.0.0",
-  "description": "Aplikasi web yang berisikan sistem Login/Register beserta CRUD.",
+  "description": "Ini adalah projek kenaikan level SMK Telkom Malang, tentang website Dashboard Tata Tertib Siswa-Siswi Sekolah.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon -r esm index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hasimy-as/Log-CRUD.git"
+    "url": "git+https://github.com/hasimy-as/UKL-2.git"
   },
   "author": "Hasimy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hasimy-as/Log-CRUD/issues"
+    "url": "https://github.com/hasimy-as/UKL-2/issues"
   },
-  "homepage": "https://github.com/hasimy-as/Log-CRUD#readme",
+  "homepage": "https://github.com/hasimy-as/UKL-2#readme",
   "dependencies": {
     "alert-node": "^2.0.3",
     "body-parser": "^1.19.0",
